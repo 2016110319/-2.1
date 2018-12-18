@@ -1,0 +1,69 @@
+//(1)
+let dicArry: [[String:Any]] = [["name":"李明","age":45]["name":"王佳","age":25],["name":"张云","age":27]] 
+let nameArry = dicArry.map({ $0["name"]! }) print("名字为 ==\(nameArry)") 
+
+//(2)
+ let strArry = ["123","12a","345"]
+let result = strArry.filter{ Int($0) != nil }
+print("筛选以后的字符串为\(result)")
+
+//(3)
+let strArry = ["李","雨","庭"]
+let str_result = strArry.reduce("", { $0+$1 })
+print("所得字符串为：\(str_result)")
+
+//(4)
+let intArr = [1,3,20,3,50,6]
+let int_max = intArr.reduce(intArr[0], { $0 > $1 ? $0 : $1 })
+let int_min = intArr.reduce(intArr[0], { $0 < $1 ? $0 : $1 })
+let int_add = intArr.reduce(intArr[0], { $0 + $1 })
+print("最大值：\(int_max)")
+print("最小值：\(int_min)")
+print("总和：\(int_add)")
+
+//(5)
+//(6)
+//(7)
+func searchMaxandMin<M:Comparable>(num: [M]) -> (max:M,min:M) {
+
+var max = num[0]
+
+var min = num[0]
+
+
+for i in num{
+
+   if max < i {
+
+      max = i
+
+    }
+
+         
+   else if min > i{
+
+      min = i
+ 
+     }
+
+     
+    }
+
+    return (max,min)
+
+    
+}
+
+
+let tempInt = searchMaxandMin(num:[1,2,3])
+
+print("传入整数时最大值为：\(tempInt.max) 最小值为：\(tempInt.min)")
+
+
+let tempFloat = searchMaxandMin(num:[12.0,13.5,7.0])
+
+print("传入浮点数时最大值为：\(tempFloat.max) 最小值为\(tempFloat.min)")
+
+let tempString = searchMaxandMin(num:["A","B","C"])
+
+print("传入字符串时最大值为：\(tempString.max) 最小值为\(tempString.min)")
